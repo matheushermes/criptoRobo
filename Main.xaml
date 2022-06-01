@@ -1,4 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Fluxograma" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1788,835" sap2010:WorkflowViewState.IdRef="Fluxograma_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Fluxograma" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_tableCripto" Type="InArgument(sd:DataTable)" />
+  </x:Members>
+  <this:Fluxograma.out_tableCripto>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:Fluxograma.out_tableCripto>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1788,835</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Fluxograma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -36,6 +47,7 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -72,9 +84,17 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Fluxograma" sap:VirtualizedContainerService.HintSize="1798,770" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="urlCripto">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">https://coinmarketcap.com/pt-br/</Literal>
+        </Variable.Default>
+      </Variable>
+    </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -86,23 +106,17 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID1</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID0">
+    <FlowStep x:Name="__ReferenceID1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">110,326</av:Point>
           <av:Size x:Key="ShapeSize">200,108</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">310,380 380,380</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Irá abrir a aplicação web de criptomoedas" DisplayName="Iniciando aplicação" sap:VirtualizedContainerService.HintSize="798,1095" sap2010:WorkflowViewState.IdRef="Sequence_1">
-        <Sequence.Variables>
-          <Variable x:TypeArguments="x:String" Name="urlCripto">
-            <Variable.Default>
-              <Literal x:TypeArguments="x:String">https://coinmarketcap.com/pt-br/</Literal>
-            </Variable.Default>
-          </Variable>
-        </Sequence.Variables>
+      <Sequence sap2010:Annotation.AnnotationText="Irá abrir a aplicação web de criptomoedas" DisplayName="Iniciando aplicação" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -180,6 +194,52 @@
           </uix:NApplicationCard.TargetApp>
         </uix:NApplicationCard>
       </Sequence>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID0">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">380,326</av:Point>
+              <av:Size x:Key="ShapeSize">200,108</av:Size>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence sap2010:Annotation.AnnotationText="Extraindo nome, valores das criptomoedas" DisplayName="Extraindo dados das criptomoedas" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="9f5c8669-f849-4225-94b0-73fcb649b3f6" Version="V2">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[out_tableCripto]" DisplayName="Extraindo dados " ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Criptomoeda'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='Valor'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='3' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='p' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='4' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractSimilar="True" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NExtractData_1" MaximumResults="0" Version="V1">
+                      <uix:NExtractData.NextLink>
+                        <uix:TargetAnchorable BrowserURL="https://coinmarketcap.com/pt-br/" DesignTimeRectangle="1044, 707, 18, 18" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;li&amp;gt;a&amp;gt;svg' idx='2' parentid='__next' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='sc-16r8icm-0 dWGZqy' parentid='__next' tag='svg' aaname='' /&gt;" Guid="4ad3acaa-1e4e-41e7-a9c8-9fd8756a2b8f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABaSURBVDhPY/hPJTBqEGGA06BHj578NzGzB9PEALwu6u6ZSLRhBL1GrGFEhRExhhFlUF5+GeUGwQw5euwEVAQ7wGsQsYaAAE6DQJqJNQQEiAojYsCoQYTA//8AYCPq6v+TeicAAAAASUVORK5CYII=" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Preços, Gráficos e Capitalização de Mercado das Criptomoedas | CoinMarketCap' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                      </uix:NExtractData.NextLink>
+                      <uix:NExtractData.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="280, 636, 1370, 8050" FriendlyName="'1Bitcoin1BTCCompre$31,9…'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='TBODY' /&gt;" Guid="d239099a-ac7a-4406-b483-8dc84ba9249e" InformativeScreenshot="8c3366d58fc0c67a3b7a5f1270bfe110.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Preços, Gráficos e Capitalização de Mercado das Criptomoedas | CoinMarketCap' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                      </uix:NExtractData.Target>
+                    </uix:NExtractData>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="accf4cd4c3d4bab44d68d8d4d7fc2dc6.png" Selector="&lt;html app='chrome.exe' title='Preços, Gráficos e Capitalização de Mercado das Criptomoedas | CoinMarketCap' /&gt;" Url="[urlCripto]" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </FlowStep>
+      </FlowStep.Next>
     </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
   </Flowchart>
 </Activity>
