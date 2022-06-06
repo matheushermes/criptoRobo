@@ -102,7 +102,7 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <x:Double x:Key="Width">1764</x:Double>
         <x:Double x:Key="Height">734.02266441821257</x:Double>
-        <av:PointCollection x:Key="ConnectorLocation">60,380 90,380 90,382 110,382</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">60,380 110,380</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -112,11 +112,11 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">110,326</av:Point>
-          <av:Size x:Key="ShapeSize">200,112</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">310,382 380,382</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,108</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">310,380 380,380</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence sap2010:Annotation.AnnotationText="Irá abrir a aplicação web de criptomoedas." DisplayName="Iniciando aplicação" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence sap2010:Annotation.AnnotationText="Irá abrir a aplicação web de criptomoedas." DisplayName="Iniciando aplicação" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -199,11 +199,11 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">380,326</av:Point>
-              <av:Size x:Key="ShapeSize">200,112</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">580,382 610,382 610,382.5 630,382.5</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,108</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">580,380 660,380</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="Extraindo nome, valores das criptomoedas." DisplayName="Extraindo dados das criptomoedas" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence sap2010:Annotation.AnnotationText="Extraindo nome, valores das criptomoedas." DisplayName="Extraindo dados das criptomoedas" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -242,12 +242,12 @@
             <FlowStep x:Name="__ReferenceID1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <av:Point x:Key="ShapeLocation">630,318.5</av:Point>
-                  <av:Size x:Key="ShapeSize">200,128</av:Size>
-                  <av:PointCollection x:Key="ConnectorLocation">730,318.5 730,266</av:PointCollection>
+                  <av:Point x:Key="ShapeLocation">660,318.5</av:Point>
+                  <av:Size x:Key="ShapeSize">200,123</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">760,318.5 760,245.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="Perguntar ao usuário a criptomoeda que gostaria de saber informações." DisplayName="Cripto escolhida" sap:VirtualizedContainerService.HintSize="200,128" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap2010:Annotation.AnnotationText="Perguntar ao usuário a criptomoeda que gostaria de saber informações." DisplayName="Cripto escolhida" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -264,18 +264,14 @@
                 <FlowStep x:Name="__ReferenceID2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:Point x:Key="ShapeLocation">630,214</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52</av:Size>
+                      <av:Point x:Key="ShapeLocation">660,194.5</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ResgatandoValores workflow" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ResgatandoValores.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ResgatandoValores workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ResgatandoValores.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_tableCripto">
-                        <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="out_tableCripto" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosen">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_criptoChosen" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_tableCripto">[out_tableCripto]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosen">[out_criptoChosen]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                 </FlowStep>
