@@ -1,12 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PesquisandoCripto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PesquisandoCripto" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_criptoChosen" Type="InArgument(x:String)" />
     <x:Property Name="in_urlCripto" Type="InArgument(x:String)" />
+    <x:Property Name="out_criptoChosenExtract" Type="InArgument(x:Object)" />
   </x:Members>
+  <this:PesquisandoCripto.out_criptoChosenExtract>
+    <InArgument x:TypeArguments="x:Object" />
+  </this:PesquisandoCripto.out_criptoChosenExtract>
   <sap:VirtualizedContainerService.HintSize>1788,827</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="32">
+    <scg:List x:TypeArguments="x:String" Capacity="31">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System</x:String>
@@ -37,10 +41,11 @@
       <x:String>System.Net.Mail</x:String>
       <x:String>Microsoft.VisualBasic</x:String>
       <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -79,41 +84,4 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Pesquisando Cripto" sap:VirtualizedContainerService.HintSize="476,617" sap2010:WorkflowViewState.IdRef="Sequence_6">
-    <sap:WorkflowViewStateService.ViewState>
-      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-      </scg:Dictionary>
-    </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Chrome: Todas as Criptomoedas: Lista de nomes - Investing.com" sap:VirtualizedContainerService.HintSize="434,525" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="987ad54e-c1c8-4bbf-b00a-3eb6a4435e2b" Version="V2">
-      <uix:NApplicationCard.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="376,309" sap2010:WorkflowViewState.IdRef="Sequence_7">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'LABEL'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="987ad54e-c1c8-4bbf-b00a-3eb6a4435e2b" Text="[in_criptoChosen]" Version="V1">
-              <uix:NTypeInto.Target>
-                <uix:TargetAnchorable BrowserURL="https://br.investing.com/crypto/currencies" DesignTimeRectangle="482, 438, 534, 20" ElementType="InputBox" FriendlyName="'bitcoin'" FullSelectorArgument="&lt;webctrl id='crypto-table-search' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='crypto-table-search' tag='INPUT' type='text' class='searchText js-crypto-search-filter' aaname=' ' /&gt;" Guid="02b4c3d5-bb2b-4c7c-a521-12b9258609b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAhoAAAAYCAYAAAC87lQEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVHhe7dvdjYJAGEDR7b8AbIAGiB1gDxShRcyyDD8DRmGVSZSckxgzIPDIzQf+BACATIQGAJCN0AAAshEaAEA2QgMAyEZoAADZCA0AIJvV0GjORSjOTb9auNahPJWhvvbrPTRVKE5VeHBFAOCL7BgaTahORajeLQShAQCH8V5ozOwUGgDAYWwMjTrUZfvdhsRs2jBONG7J/ik2bpdy3FaUdbjFzZ3uvMO+NGSSiUa8dtUFTPztzo9pAICstoVGe5Mf4qFbD9Hw7NHJ4hFIjIa46gJkDI94XHnpM2QZGklczK4NAHy8baGR3tzTuHgSGmlYzMXpxxgWrVl43E00pnPMAwUA+HQvvKPxFxRroXEfE5PF5KMlNADgmP4fGiYaAMBGG9/RGGKiXw83+yehsXxHI42EeTDE4x6+oyE0AOBrbZxorP3rJC5jlEzR0IVBd8ziuNbw2+6TTj6EBgAcxmpoAAC8SmgAANkIDQAgG6EBAGQjNACAbIQGAJCN0AAAMgnhF1nGYclazF4bAAAAAElFTkSuQmCC" InformativeScreenshot="77131781074a7203f497f03c6bf8023a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Todas as Criptomoedas: Lista de nomes - Investing.com' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                      <uix:Target DesignTimeRectangle="1019, 441, 16, 16" FriendlyName="'LABEL'" FullSelectorArgument="&lt;webctrl parentid='searchBoxCrypto' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='searchBoxCrypto' tag='LABEL' type='' class='searchGlassIcon' aaname=' ' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFLSURBVDhP5ZNdi4JAFIb3//+Q0j4QP1JQRAu1UryQ7gS7EEToLiIrSM5yzp623LFlib1Z9oEBfcfzzHFG3+CX+ePCoiggiiKwLAvm8zlsNhu4XC4820+v8Hg8guM4MBgMaOi6DsPhkK4VRYG6rvlJkV6h67pUnKZpp6Ptdgvj8Rgmkwk0TcNpF0GIRShLkoSTLlVV0XwQBJx0EYS4V/h65/OZExHbtkGWZbher5zcEYSmaYKqqnzXTxzH1CXu9VcEIR7GaDSCtm05EVksFvQWP+owyzJaPc9zTrrs93uQJIkW7kMQ4t5Np1PqsixLTj9A2Ww2owXDMOS0iyBEdrsdSbHQMAxYLpefB4HZbazXa6640ytETqcTrFYr0DSNinHPPM+jrm8ZDnzmkafC78DTxS/hJj0cDjzzohBBqe/79K8/nvbLwmf8OyHAO4jR/A7K6qyiAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NTypeInto.Target>
-            </uix:NTypeInto>
-          </Sequence>
-        </ActivityAction>
-      </uix:NApplicationCard.Body>
-      <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="-1928, -8, 1936, 1056" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFpSURBVDhPpZI9agIBEIXnAIG0ElIE0i3iCosgrD8r/qN4AdGAwRukMI0bCzuLkEIPENJkwQMIVgraeYDVQhCxtRXkhTdgyiDZgY95+3Zn9hUj1WoVQZBKpYIgSLlcRhCkVCrhWr5fH+B/3ODz5R6O46BQKEDy+TyuBV+ivD/fIhwOI5VKQbLZLPr9PqbTKaj/4u3pEbZ5h1AoBMMwkEgkIIzC2mw2Gou0Wi3U63V0Oh19dl0Xg8EAtVoNpmmi1+vpTzVBMpn8XZDL5bDb7XA4HHA+n9VfrVbwPE81lzQaDdXL5RKcFdu21Viv1ygWi6r3+70mYD+dTmi32+pPJhOMRiPV3W4XnJV4PK4GFzABaz6fgz47i3q73WqyxWKB4/GIdDqtvsRiMf3I931kMhnVHKR/WUA9HA5VM9F4PFaPiGVZ+oILuJU1m81An51Fzau7VLPZVI9INBpFECQSiSAIwosKgvCi/o+BH4TrJi9ge6UgAAAAAElFTkSuQmCC" InformativeScreenshot="446a3c92a8beca25853a19f71f479588.png" Selector="&lt;html app='chrome.exe' title='Todas as Criptomoedas: Lista de nomes - Investing.com' /&gt;" Url="[in_urlCripto]" />
-      </uix:NApplicationCard.TargetApp>
-    </uix:NApplicationCard>
-  </Sequence>
 </Activity>
