@@ -7,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1788,882</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1788,987</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Fluxograma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="76">
+    <scg:List x:TypeArguments="x:String" Capacity="39">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -53,7 +53,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="68">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -88,10 +88,9 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Fluxograma" sap:VirtualizedContainerService.HintSize="1094,817" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Fluxograma" sap:VirtualizedContainerService.HintSize="1114,922" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Default="https://br.investing.com/crypto/currencies" Name="urlCripto" />
     </Flowchart.Variables>
@@ -100,15 +99,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <av:Point x:Key="ShapeLocation">480,22.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <x:Double x:Key="Width">1060</x:Double>
-        <x:Double x:Key="Height">781.07999999999993</x:Double>
+        <x:Double x:Key="Width">1080</x:Double>
+        <x:Double x:Key="Height">886.07999999999993</x:Double>
         <av:PointCollection x:Key="ConnectorLocation">540,60 620,60</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID5</x:Reference>
+      <x:Reference>__ReferenceID6</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID5">
+    <FlowStep x:Name="__ReferenceID6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">620,6</av:Point>
@@ -213,7 +212,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">450,284 450,356.5</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="Pesquisando a criptomoeda escolhida pelo usuário." DisplayName="Pesquisando Cripto" sap:VirtualizedContainerService.HintSize="852,1373" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap2010:Annotation.AnnotationText="Pesquisando a criptomoeda escolhida pelo usuário." DisplayName="Pesquisando Cripto" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -273,7 +272,7 @@
                                 <uix:NGetText.Target>
                                   <uix:TargetAnchorable BrowserURL="https://br.investing.com/crypto/currencies" DesignTimeRectangle="555, 572, 69, 17" ElementType="Text" FriendlyName="'Ethereum'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='*' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='' /&gt;" Guid="e43e3e04-8cfd-4207-9faf-3d8f7ae2797b" InformativeScreenshot="cb0ce3f7f6d627993dd21fbbe83df97a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Todas as Criptomoedas: Lista de nomes - Investing.com' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
                                     <uix:TargetAnchorable.Anchors>
-                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                         <uix:Target DesignTimeRectangle="545, 521, 161, 41" FriendlyName="'Nome'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname=' Nome ' tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname=' Nome ' type='' tag='TH' class='left elp name first sorting' check:innerText='Nome' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKUAAAAtCAYAAADPyKtvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHvSURBVHhe7dhLisJAFEZh95R1ma0EN+FYp4I4dyJZhuAGHEh1VaVuHqU2xkT4A+eDi+Rpg4eU9soBYogScogScogScogScogScogScogScogScogScogScogScogScogScogScogScogScogScogScogSckZHeduXrigKV6x37pb2RZeq2b+p0w7gO99H6afc97IkSsyg3hTToiyK0u2u6cCrKK87V7bnZsf8c3a3TvfYp2v9NKHbsTCVG1z17v3fuN/v7nQ6xVeISw1NjNKPhZZHmQdp0y77/fD6U7oy35/u+fTecYbR9j0eD3c8Ht12u42vYRu6wlMyfKZfR1nu6zaq6uIPZFHaG3RLfBdhPL+3befYNW24ds+4bef3IkzHB18jes7ncwzSJmxDl32+E6L0IVg0IZRBlLWrbH9zWWMQkUXWLcGDewf2tI1R2j1fjD2dsWjWw7QovfaJuE5LawzkxVMt+FWU7VcCLNkMy7dlkMUyevn+NMo3of+D5Xth0kNrhii9dhn3Y0vpxz90Po2yO55PE/kzfugsTdPEPFG2gfnpf7/Lwxx89xsfZZCHOfw7nvEvoeUZHSXwa0QJOUQJOUQJOUQJOUQJOUQJOUQJOUQJOUQJOUQJOUQJOavD4eAYRmmIkpEblm+Ice4POPTJXgKpjqwAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
                                       </scg:List>
                                     </uix:TargetAnchorable.Anchors>
@@ -298,10 +297,7 @@
                 </uix:NApplicationCard>
               </Sequence>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID1" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="out_criptoChosen.ToLower.Equals(out_criptoChosenExtract.ToLower)" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID1" Condition="[out_criptoChosen.ToLower.Equals(out_criptoChosenExtract.ToLower)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -317,6 +313,7 @@
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">100,346</av:Point>
                           <av:Size x:Key="ShapeSize">200,108</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">200,454 200,517</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <Sequence sap2010:Annotation.AnnotationText="Vai extrair o valor atual da cripto moeda solicitada." DisplayName="Extraindo Valor" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_10">
@@ -342,7 +339,7 @@
                                   <uix:NGetText.Target>
                                     <uix:TargetAnchorable BrowserURL="https://br.investing.com/crypto/currencies" DesignTimeRectangle="779, 463, 111, 35" ElementType="Text" FriendlyName="'0,081384'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='0,081384' tableRow='2' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='pid-1061477-last' /&gt;" Guid="1b508b98-eb5b-4671-9879-ed069a64ced0" InformativeScreenshot="da24e2080157bc569b639f9435eb5f74.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Todas as Criptomoedas: Lista de nomes - Investing.com' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
                                       <uix:TargetAnchorable.Anchors>
-                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                           <uix:Target DesignTimeRectangle="779, 435, 82, 16" ElementType="Text" FriendlyName="'Preço (USD)'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Preço (USD)' tableRow='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Preço (USD)' type='' tag='SPAN' class='js-price-header-span' check:innerText='Preço (USD)' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAUCAYAAAAXxsqQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVFhH7ZThjcMgDIVvp8yVrBJ1k3SSKmNU6g4cEBtjbJNwLVGly5P8o5DC82fjH3epiy6wnXSB7aQLbCddYDspgX3dJzcMgxKzW+Gbr9Jjjv7mR/ixuln1+nLLGNYntzxhKQq/13M0WYyLP5G03uQa6gDYEN8GF4ClpFrA4loZ9N/DLFhxuQTY6Z7zL4w9FzeFw8fZzWAOv4/VixeHsBKEEFUuk90pJCREXhvAphzQA92NgOosfNzwFrhX6dq/gU2xrXOoEIrxpn3WZVx4H3VKS8fSGOC5knQWXmZRpNdjowAPSmAVo1nV8KyYOHSXaUbsZ15SZ+SqwToClgpDwfdNsMo9LNdM+2CzhGXFvEQXUwRjtslNsvuCZLFIGsQ2sEFavvVREGSDLb/dGQWFGsGGjts7F/fPBkvCb3zACzE9K/n3A1uF4IVPPUuadWnzKNAgEhzmX7k7reVnF2sWC/Sdr3cESxfywC7JOiKPdIaxb3aZ3oWpGFqwAmFhZJSjQA/+KvBb/uI+BDaohMsvKuFZT9ba57KSoQ6l0PORcPOzTLAib/Qt/SawvUVma/PuoKDA1SY4RfYYPA3sps3I+0CgU5SEThW8EPFyvM4BiyMkRv2ZH1ZM6gPd/4bi+DOKe3LH/h9dYLvIuV+46pXCdBfq2gAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
                                         </scg:List>
                                       </uix:TargetAnchorable.Anchors>
@@ -361,6 +358,44 @@
                           </uix:NApplicationCard.TargetApp>
                         </uix:NApplicationCard>
                       </Sequence>
+                      <FlowStep.Next>
+                        <FlowStep x:Name="__ReferenceID5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">100,517</av:Point>
+                              <av:Size x:Key="ShapeSize">200,123</av:Size>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence sap2010:Annotation.AnnotationText="Passando dados extraidos da criptomoeda e passando para tabela excel" DisplayName="Tabela Excel" sap:VirtualizedContainerService.HintSize="376,398" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke VerificandoSeEstaVazio workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="VerificandoSeEstaVazio.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosenExtract">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_criptoChosenExtract" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_valueCripto">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_valueCripto" />
+                                </InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke AdicionandoDados workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="AdicionandoDados.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosenExtract">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_criptoChosenExtract" />
+                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="in_valueCripto">
+                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_valueCripto" />
+                                </InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                          </Sequence>
+                        </FlowStep>
+                      </FlowStep.Next>
                     </FlowStep>
                   </FlowDecision.True>
                   <FlowDecision.False>
@@ -397,5 +432,6 @@
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
   </Flowchart>
 </Activity>
