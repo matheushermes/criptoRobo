@@ -92,15 +92,13 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Fluxograma" sap:VirtualizedContainerService.HintSize="1148,1097" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Default="https://br.investing.com/crypto/currencies" Name="urlCripto" />
-      <Variable x:TypeArguments="sd:DataTable" Name="tableCripto" />
-      <Variable x:TypeArguments="x:String" Name="i" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -276,7 +274,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <uix:NExtractData sap2010:Annotation.AnnotationText="Extraindo nome e valor da criptomoeda pedida pelo usuário." AppendResults="False" ContinueOnError="True" DataTable="[out_infoCripto]" DisplayName="Extraindo Info Cripto" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Cripto'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Value'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='3' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='5' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractSimilar="True" sap:VirtualizedContainerService.HintSize="434,198" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="1" Version="V1">
+                              <uix:NExtractData sap2010:Annotation.AnnotationText="Extraindo nome e valor da criptomoeda pedida pelo usuário." AppendResults="False" ContinueOnError="True" DataTable="[out_infoCripto]" DisplayName="Extraindo Info Cripto" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Cripto'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Value'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='tr' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column0' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='3' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='tr' /&gt;&lt;webctrl tag='td' idx='5' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" ExtractSimilar="True" sap:VirtualizedContainerService.HintSize="434,198" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="1" Version="V1">
                                 <uix:NExtractData.Target>
                                   <uix:TargetAnchorable DesignTimeRectangle="475, 465, 970, 3995" FriendlyName="'1BitcoinBTC30.241,8$575…'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='TBODY' /&gt;" Guid="752fe9f6-bbca-4319-b9bc-e5cad59deed5" InformativeScreenshot="df81658e528e75e5cabd432aea3c3a6e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Todas as Criptomoedas: Lista de nomes - Investing.com' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
                                 </uix:NExtractData.Target>
@@ -338,10 +336,7 @@
                 </uix:NApplicationCard>
               </Sequence>
               <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID1" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                  <FlowDecision.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="out_criptoChosen.ToLower.Equals(out_nameCripto.ToLower)" />
-                  </FlowDecision.Condition>
+                <FlowDecision x:Name="__ReferenceID1" Condition="[out_criptoChosen.ToLower.Equals(out_nameCripto.ToLower)]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -369,21 +364,18 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:ReadRange>
                       <FlowStep.Next>
-                        <FlowDecision x:Name="__ReferenceID4" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-                          <FlowDecision.Condition>
-                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="tableCripto.Rows.Count = 0" />
-                          </FlowDecision.Condition>
+                        <FlowDecision x:Name="__ReferenceID4" Condition="[tableCripto.Rows.Count = 0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <av:Point x:Key="ShapeLocation">330.5,506.5</av:Point>
                               <av:Size x:Key="ShapeSize">79,87</av:Size>
                               <av:PointCollection x:Key="TrueConnector">330.5,550 240,550</av:PointCollection>
-                              <av:PointCollection x:Key="FalseConnector">409.5,550 500,550</av:PointCollection>
+                              <av:PointCollection x:Key="FalseConnector">409.5,550 520,550</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowDecision.True>
-                            <FlowStep x:Name="__ReferenceID7">
+                            <FlowStep x:Name="__ReferenceID6">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">40,496</av:Point>
@@ -407,34 +399,56 @@
                             </FlowStep>
                           </FlowDecision.True>
                           <FlowDecision.False>
-                            <FlowStep x:Name="__ReferenceID6">
+                            <FlowStep x:Name="__ReferenceID7">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <av:Point x:Key="ShapeLocation">500,503.5</av:Point>
-                                  <av:Size x:Key="ShapeSize">200,93</av:Size>
+                                  <av:Point x:Key="ShapeLocation">520,481</av:Point>
+                                  <av:Size x:Key="ShapeSize">200,138</av:Size>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Adicionando dados para tabela excel." DisplayName="Invoke AdicionandoDados workflow" sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="AdicionandoDados.xaml">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_valueCripto">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_valueCripto" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_nameCripto">
-                                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_nameCripto" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="sd:DataTable" x:Key="in_infoCripto">
-                                    <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="out_infoCripto" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_previousValueCripto">
-                                    <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="i" />
-                                  </OutArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
+                              <Sequence sap2010:Annotation.AnnotationText="Vai fazer uma nova leitura na tabela excel para verificar se a cripto moeda escolhida pelo usuário já esta inscrita." DisplayName="Lendo Arquivo Excel Para Adição de Dados" sap:VirtualizedContainerService.HintSize="549,568" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="sd:DataTable" Name="tableCripto" />
+                                  <Variable x:TypeArguments="x:Int32" Default="1" Name="index" />
+                                </Sequence.Variables>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                              </ui:InvokeWorkflowFile>
+                                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[tableCripto]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="507,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx" />
+                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[tableCripto]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="507,307" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                  <ui:ForEachRow.Body>
+                                    <ActivityAction x:TypeArguments="sd:DataRow">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="sd:DataRow" Name="rowCripto" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Corpo" sap:VirtualizedContainerService.HintSize="473,192" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,100" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                                          <ui:MultipleAssign.AssignOperations>
+                                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[index + 1]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                            </scg:List>
+                                          </ui:MultipleAssign.AssignOperations>
+                                        </ui:MultipleAssign>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ui:ForEachRow.Body>
+                                </ui:ForEachRow>
+                              </Sequence>
                             </FlowStep>
                           </FlowDecision.False>
                         </FlowDecision>
@@ -477,6 +491,69 @@
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
+    <FlowStep>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">180,734.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:AppendRange DataTable="[in_infoCripto]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx" />
+    </FlowStep>
     <x:Reference>__ReferenceID7</x:Reference>
+    <FlowStep>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">400,724.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If Condition="[in_nameCripto.ToLower.Equals(rowCripto(0).ToString.ToLower)]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="If_2">
+        <If.Then>
+          <Sequence sap2010:Annotation.AnnotationText="Verificando se a criptomoeda escolhida já existe na tabela de dados excel." sap:VirtualizedContainerService.HintSize="473,626" sap2010:WorkflowViewState.IdRef="Sequence_20">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,131" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[out_nameCriptoExcel]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[rowCripto(0).ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[out_previousValueCriptoExcel]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[rowCripto(1).ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:WriteCell Cell="[&quot;C&quot; + index.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="431,115" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Cripto" Text="[out_previousValueCriptoExcel]" WorkbookPath="Data\criptomoedas.xlsx" />
+            <ui:WriteCell Cell="[&quot;B&quot; + index.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="431,115" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Cripto" Text="[in_valueCripto]" WorkbookPath="Data\criptomoedas.xlsx" />
+            <ui:Break sap:VirtualizedContainerService.HintSize="431,22" sap2010:WorkflowViewState.IdRef="Break_2" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
+    </FlowStep>
   </Flowchart>
 </Activity>
