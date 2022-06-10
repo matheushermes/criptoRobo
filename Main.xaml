@@ -6,6 +6,7 @@
     <x:Property Name="out_nameCripto" Type="InArgument(x:String)" />
     <x:Property Name="out_nameCriptoExcel" Type="InArgument(x:String)" />
     <x:Property Name="out_previousValueCriptoExcel" Type="InArgument(x:String)" />
+    <x:Property Name="out_criptoNotExist" Type="OutArgument(x:String)" />
   </x:Members>
   <this:Fluxograma.out_nameCripto>
     <InArgument x:TypeArguments="x:String" />
@@ -22,7 +23,7 @@
   <sap:VirtualizedContainerService.HintSize>1788,1162</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Fluxograma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="39">
+    <scg:List x:TypeArguments="x:String" Capacity="40">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -62,6 +63,7 @@
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -108,6 +110,7 @@
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Default="https://br.investing.com/crypto/currencies" Name="urlCripto" />
       <Variable x:TypeArguments="sd:DataTable" Name="tableCripto" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="index" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -120,9 +123,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID8</x:Reference>
+      <x:Reference>__ReferenceID10</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID8">
+    <FlowStep x:Name="__ReferenceID10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">800,6</av:Point>
@@ -408,16 +411,21 @@
                             </FlowStep>
                           </FlowDecision.True>
                           <FlowDecision.False>
-                            <FlowStep x:Name="__ReferenceID7">
+                            <FlowStep x:Name="__ReferenceID8">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">520,481</av:Point>
                                   <av:Size x:Key="ShapeSize">200,138</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">620,619 620,676.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence sap2010:Annotation.AnnotationText="Vai fazer uma nova leitura na tabela excel para verificar se a cripto moeda escolhida pelo usuário já esta inscrita." DisplayName="Lendo Arquivo Excel Para Adição de Dados" sap:VirtualizedContainerService.HintSize="627,1410" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                              <Sequence sap2010:Annotation.AnnotationText="Vai fazer uma nova leitura na tabela excel para verificar se a cripto moeda escolhida pelo usuário já esta inscrita." DisplayName="Lendo Arquivo Excel Para Adição de Dados" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                 <Sequence.Variables>
-                                  <Variable x:TypeArguments="x:Int32" Default="1" Name="index" />
+                                  <Variable x:TypeArguments="x:String" Name="critoExist">
+                                    <Variable.Default>
+                                      <Literal x:TypeArguments="x:String">Not Exist</Literal>
+                                    </Variable.Default>
+                                  </Variable>
                                 </Sequence.Variables>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -425,14 +433,14 @@
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[tableCripto]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="585,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx" />
-                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[tableCripto]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="585,1160" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                                <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[tableCripto]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="653,87" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx" />
+                                <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[tableCripto]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="653,1260" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                                   <ui:ForEachRow.Body>
                                     <ActivityAction x:TypeArguments="sd:DataRow">
                                       <ActivityAction.Argument>
                                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="rowCripto" />
                                       </ActivityAction.Argument>
-                                      <Sequence DisplayName="Corpo" sap:VirtualizedContainerService.HintSize="551,1045" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                      <Sequence DisplayName="Corpo" sap:VirtualizedContainerService.HintSize="551,1145" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -452,9 +460,9 @@
                                             </scg:List>
                                           </ui:MultipleAssign.AssignOperations>
                                         </ui:MultipleAssign>
-                                        <If Condition="[out_nameCripto.ToLower.Equals(rowCripto(0).ToString.ToLower)]" sap:VirtualizedContainerService.HintSize="509,813" sap2010:WorkflowViewState.IdRef="If_3">
+                                        <If Condition="[out_nameCripto.ToLower.Equals(rowCripto(0).ToString.ToLower)]" sap:VirtualizedContainerService.HintSize="509,913" sap2010:WorkflowViewState.IdRef="If_3">
                                           <If.Then>
-                                            <Sequence sap2010:Annotation.AnnotationText="Verificando se a criptomoeda escolhida já existe na tabela de dados excel." sap:VirtualizedContainerService.HintSize="473,626" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                            <Sequence sap2010:Annotation.AnnotationText="Verificando se a criptomoeda escolhida já existe na tabela de dados excel." sap:VirtualizedContainerService.HintSize="473,726" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -485,6 +493,14 @@
                                               </ui:MultipleAssign>
                                               <ui:WriteCell Cell="[&quot;C&quot; + index.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="431,115" sap2010:WorkflowViewState.IdRef="WriteCell_7" SheetName="Cripto" Text="[out_previousValueCriptoExcel]" WorkbookPath="Data\criptomoedas.xlsx" />
                                               <ui:WriteCell Cell="[&quot;B&quot; + index.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="431,115" sap2010:WorkflowViewState.IdRef="WriteCell_8" SheetName="Cripto" Text="[out_valueCripto]" WorkbookPath="Data\criptomoedas.xlsx" />
+                                              <Assign sap:VirtualizedContainerService.HintSize="431,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:String">[critoExist]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:String">[rowCripto(0).ToString]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
                                               <ui:Break sap:VirtualizedContainerService.HintSize="431,22" sap2010:WorkflowViewState.IdRef="Break_3" />
                                             </Sequence>
                                           </If.Then>
@@ -502,7 +518,75 @@
                                     </ActivityAction>
                                   </ui:ForEachRow.Body>
                                 </ui:ForEachRow>
+                                <If Condition="[critoExist.ToLower &lt;&gt; out_nameCripto.ToLower]" sap:VirtualizedContainerService.HintSize="653,310" sap2010:WorkflowViewState.IdRef="If_4">
+                                  <If.Then>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[out_criptoNotExist]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">Not Exist</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[out_criptoNotExist]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">Exist</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
                               </Sequence>
+                              <FlowStep.Next>
+                                <FlowDecision x:Name="__ReferenceID9" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
+                                  <FlowDecision.Condition>
+                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="out_criptoNotExist = &quot;Not Exist&quot;" />
+                                  </FlowDecision.Condition>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <av:Point x:Key="ShapeLocation">580.5,676.5</av:Point>
+                                      <av:Size x:Key="ShapeSize">79,87</av:Size>
+                                      <av:PointCollection x:Key="TrueConnector">580.5,720 470,720</av:PointCollection>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <FlowDecision.True>
+                                    <FlowStep x:Name="__ReferenceID7">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">270,658.5</av:Point>
+                                          <av:Size x:Key="ShapeSize">200,123</av:Size>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:AppendRange sap2010:Annotation.AnnotationText=" Vai adicionar a cripto escolhida pelo usuário caso ela já não exista na planilha excel." DataTable="[out_infoCripto]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:AppendRange>
+                                    </FlowStep>
+                                  </FlowDecision.True>
+                                </FlowDecision>
+                              </FlowStep.Next>
                             </FlowStep>
                           </FlowDecision.False>
                         </FlowDecision>
@@ -545,15 +629,8 @@
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
-    <FlowStep>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">180,734.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,51</av:Size>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <ui:AppendRange DataTable="[in_infoCripto]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx" />
-    </FlowStep>
     <x:Reference>__ReferenceID7</x:Reference>
+    <x:Reference>__ReferenceID8</x:Reference>
+    <x:Reference>__ReferenceID9</x:Reference>
   </Flowchart>
 </Activity>
