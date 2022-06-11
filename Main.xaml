@@ -20,7 +20,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1788,1162</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1788,1443</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Fluxograma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
@@ -103,6 +103,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Fluxograma" sap:VirtualizedContainerService.HintSize="1348,1378" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -393,7 +394,7 @@
                                   <av:Size x:Key="ShapeSize">200,108</av:Size>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence sap2010:Annotation.AnnotationText="Verifica se a tabela excel está nula ou vazia." DisplayName="Verificando se está vazio" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <Sequence sap2010:Annotation.AnnotationText="Verifica se a tabela excel está nula ou vazia." DisplayName="Verificando se está vazio" sap:VirtualizedContainerService.HintSize="376,393" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="tableCripto" />
                                 </Sequence.Variables>
@@ -585,11 +586,9 @@
                                               <av:Size x:Key="ShapeSize">200,138</av:Size>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Vai calcular o aumento ou a possível queda da cripto escolhida pelo usuário, usando o valor da última consulta e o valor atual." DisplayName="Invoke CalculoDePorcentagemCripto workflow" sap:VirtualizedContainerService.HintSize="334,169" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CalculoDePorcentagemCripto.xaml">
+                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Vai calcular o aumento ou a possível queda da cripto escolhida pelo usuário, usando o valor da última consulta e o valor atual." DisplayName="Invoke CalculoDePorcentagemCripto workflow" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CalculoDePorcentagemCripto.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosen">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_criptoChosen" />
-                                              </InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosen">[out_criptoChosen]</InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
