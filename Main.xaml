@@ -111,6 +111,7 @@
       <Variable x:TypeArguments="x:String" Default="https://br.investing.com/crypto/currencies" Name="urlCripto" />
       <Variable x:TypeArguments="sd:DataTable" Name="tableCripto" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="index" />
+      <Variable x:TypeArguments="x:String" Name="resultConsult" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -123,9 +124,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID11</x:Reference>
+      <x:Reference>__ReferenceID14</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID11">
+    <FlowStep x:Name="__ReferenceID14">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">800,6</av:Point>
@@ -200,7 +201,7 @@
         </uix:NApplicationCard>
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID1">
+        <FlowStep x:Name="__ReferenceID0">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">800,168.5</av:Point>
@@ -237,7 +238,7 @@
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Todas as Criptomoedas: Lista de nomes - Investing.com" sap:VirtualizedContainerService.HintSize="910,1735" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="Never" ScopeGuid="987ad54e-c1c8-4bbf-b00a-3eb6a4435e2b" Version="V2">
+                <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Todas as Criptomoedas: Lista de nomes - Investing.com" sap:VirtualizedContainerService.HintSize="910,1735" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="987ad54e-c1c8-4bbf-b00a-3eb6a4435e2b" Version="V2">
                   <uix:NApplicationCard.Body>
                     <ActivityAction x:TypeArguments="x:Object">
                       <ActivityAction.Argument>
@@ -392,9 +393,10 @@
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">40,496</av:Point>
                                   <av:Size x:Key="ShapeSize">200,108</av:Size>
+                                  <av:PointCollection x:Key="ConnectorLocation">140,604 140,980 730,980</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence sap2010:Annotation.AnnotationText="Verifica se a tabela excel está nula ou vazia." DisplayName="Verificando se está vazio" sap:VirtualizedContainerService.HintSize="376,393" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                              <Sequence sap2010:Annotation.AnnotationText="Verifica se a tabela excel está nula ou vazia." DisplayName="Verificando se está vazio" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="tableCripto" />
                                 </Sequence.Variables>
@@ -408,6 +410,90 @@
                                 <ui:WriteCell Cell="A2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Cripto" Text="[out_nameCripto]" WorkbookPath="Data\criptomoedas.xlsx" />
                                 <ui:WriteCell Cell="B2" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Cripto" Text="[out_valueCripto]" WorkbookPath="Data\criptomoedas.xlsx" />
                               </Sequence>
+                              <FlowStep.Next>
+                                <FlowStep x:Name="__ReferenceID1">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:Point x:Key="ShapeLocation">730,911</av:Point>
+                                      <av:Size x:Key="ShapeSize">200,138</av:Size>
+                                      <av:PointCollection x:Key="ConnectorLocation">830,1049 830,1156</av:PointCollection>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Vai calcular o aumento ou a possível queda da cripto escolhida pelo usuário, usando o valor da última consulta e o valor atual." DisplayName="Invoke CalculoDePorcentagemCripto workflow" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CalculoDePorcentagemCripto.xaml">
+                                    <ui:InvokeWorkflowFile.Arguments>
+                                      <InArgument x:TypeArguments="x:String" x:Key="in_nameCripto">
+                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="out_nameCripto" />
+                                      </InArgument>
+                                    </ui:InvokeWorkflowFile.Arguments>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InvokeWorkflowFile>
+                                  <FlowStep.Next>
+                                    <FlowStep x:Name="__ReferenceID11">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <av:Point x:Key="ShapeLocation">730,1156</av:Point>
+                                          <av:Size x:Key="ShapeSize">200,108</av:Size>
+                                          <av:PointCollection x:Key="ConnectorLocation">830,1264 830,1294 1160,1294 1160,1113.5</av:PointCollection>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ui:MessageBox Caption="{x:Null}" sap2010:Annotation.AnnotationText="Pergunta se o usuário gostaria de fazer uma nova consulta cripto" AutoCloseAfter="00:00:00" Buttons="YesNo" ChosenButton="[resultConsult]" DisplayName="Nova consulta" sap:VirtualizedContainerService.HintSize="200,108" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Gostaria de fazer uma nova consulta em alguma outra criptomoeda?&quot;]">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:MessageBox>
+                                      <FlowStep.Next>
+                                        <FlowDecision x:Name="__ReferenceID12" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                                          <FlowDecision.Condition>
+                                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="resultConsult.Equals(&quot;Sim&quot;) Or resultConsult.Equals(&quot;Sim&quot;.ToLower) Or resultConsult.Equals(&quot;Yes&quot;) Or resultConsult.Equals(&quot;Yes&quot;.ToLower) Or resultConsult.Equals(True)" />
+                                          </FlowDecision.Condition>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <av:Point x:Key="ShapeLocation">1120.5,1026.5</av:Point>
+                                              <av:Size x:Key="ShapeSize">79,87</av:Size>
+                                              <av:PointCollection x:Key="TrueConnector">1120.5,1070 1100,1070 1100,630</av:PointCollection>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <FlowDecision.True>
+                                            <FlowStep x:Name="__ReferenceID13">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <av:Point x:Key="ShapeLocation">969,570</av:Point>
+                                                  <av:Size x:Key="ShapeSize">262,60</av:Size>
+                                                  <av:PointCollection x:Key="ConnectorLocation">1100,570 1100,230 1000,230</av:PointCollection>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Assign DisplayName="Resentando a variavel index" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                                                </Assign.Value>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </Assign>
+                                              <FlowStep.Next>
+                                                <x:Reference>__ReferenceID0</x:Reference>
+                                              </FlowStep.Next>
+                                            </FlowStep>
+                                          </FlowDecision.True>
+                                        </FlowDecision>
+                                      </FlowStep.Next>
+                                    </FlowStep>
+                                  </FlowStep.Next>
+                                </FlowStep>
+                              </FlowStep.Next>
                             </FlowStep>
                           </FlowDecision.True>
                           <FlowDecision.False>
@@ -559,7 +645,7 @@
                                       <av:Point x:Key="ShapeLocation">580.5,676.5</av:Point>
                                       <av:Size x:Key="ShapeSize">79,87</av:Size>
                                       <av:PointCollection x:Key="TrueConnector">580.5,720 410,720 410,798.5</av:PointCollection>
-                                      <av:PointCollection x:Key="FalseConnector">659.5,720 830,720 830,791</av:PointCollection>
+                                      <av:PointCollection x:Key="FalseConnector">659.5,720 960,720 960,980 930,980</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <FlowDecision.True>
@@ -568,7 +654,7 @@
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">310,798.5</av:Point>
                                           <av:Size x:Key="ShapeSize">200,123</av:Size>
-                                          <av:PointCollection x:Key="ConnectorLocation">510,860 730,860</av:PointCollection>
+                                          <av:PointCollection x:Key="ConnectorLocation">510,860 830,860 830,911</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <ui:AppendRange sap2010:Annotation.AnnotationText=" Vai adicionar a cripto escolhida pelo usuário caso ela já não exista na planilha excel." DataTable="[out_infoCripto]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="200,123" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Cripto" WorkbookPath="Data\criptomoedas.xlsx">
@@ -579,29 +665,12 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:AppendRange>
                                       <FlowStep.Next>
-                                        <FlowStep x:Name="__ReferenceID0">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <av:Point x:Key="ShapeLocation">730,791</av:Point>
-                                              <av:Size x:Key="ShapeSize">200,138</av:Size>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Vai calcular o aumento ou a possível queda da cripto escolhida pelo usuário, usando o valor da última consulta e o valor atual." DisplayName="Invoke CalculoDePorcentagemCripto workflow" sap:VirtualizedContainerService.HintSize="200,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="CalculoDePorcentagemCripto.xaml">
-                                            <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="x:String" x:Key="in_criptoChosen">[out_criptoChosen]</InArgument>
-                                            </ui:InvokeWorkflowFile.Arguments>
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                          </ui:InvokeWorkflowFile>
-                                        </FlowStep>
+                                        <x:Reference>__ReferenceID1</x:Reference>
                                       </FlowStep.Next>
                                     </FlowStep>
                                   </FlowDecision.True>
                                   <FlowDecision.False>
-                                    <x:Reference>__ReferenceID0</x:Reference>
+                                    <x:Reference>__ReferenceID1</x:Reference>
                                   </FlowDecision.False>
                                 </FlowDecision>
                               </FlowStep.Next>
@@ -629,7 +698,7 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MessageBox>
                       <FlowStep.Next>
-                        <x:Reference>__ReferenceID1</x:Reference>
+                        <x:Reference>__ReferenceID0</x:Reference>
                       </FlowStep.Next>
                     </FlowStep>
                   </FlowDecision.False>
@@ -640,7 +709,7 @@
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
-    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
@@ -650,6 +719,9 @@
     <x:Reference>__ReferenceID8</x:Reference>
     <x:Reference>__ReferenceID9</x:Reference>
     <x:Reference>__ReferenceID10</x:Reference>
-    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID11</x:Reference>
+    <x:Reference>__ReferenceID12</x:Reference>
+    <x:Reference>__ReferenceID13</x:Reference>
   </Flowchart>
 </Activity>
